@@ -79,6 +79,29 @@ def catalog():
         store_json(titles, 'titles.json')
 
 
+    def clean():
+        #complete helper function definition below
+        def store_json(data,file):
+            with open(file, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, ensure_ascii=False, indent=4)
+                    print('wrote file: ' + file)
+                    
+        with open('titles.json') as file:
+            titles = json.load(file)
+            # remove punctuation/numbers
+            for index, title in enumerate(titles):
+                punctuation= '''!()-[]{};:'"\,<>./?@#$%^&*_~1234567890'''
+                translationTable= str.maketrans("","",punctuation)
+                clean = title.translate(translationTable)
+                titles[index] = clean
+
+            # remove one character words
+            for index, title in enumerate(titles):
+                clean = ' '.join( [word for word in title.split() if len(word)>1] )
+                titles[index] = clean
+
+            store_json(titles, 'titles_clean.json')
+
     #loop through all urls
     for url in url_list:
         try:
