@@ -102,6 +102,24 @@ def catalog():
 
             store_json(titles, 'titles_clean.json')
 
+    def count_words():
+        from collections import Counter
+        def store_json(data,file):
+            with open(file, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, ensure_ascii=False, indent=4)
+                    print('wrote file: ' + file)
+        with open('titles_clean.json') as file:
+            titles = json.load(file)
+            words = []
+
+            # extract words and flatten
+            for title in titles:
+                words.extend(title.split())
+
+            # count word frequency
+            counts = Counter(words)
+            store_json(counts, 'words.json')
+
     #loop through all urls
     for url in url_list:
         try:
