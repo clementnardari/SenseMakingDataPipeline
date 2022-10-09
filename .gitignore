@@ -2,3 +2,6 @@ data
 code_examples
 *.txt
 *.docx
+*.log
+logs
+__pycache__
