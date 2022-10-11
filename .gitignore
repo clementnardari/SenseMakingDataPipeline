@@ -5,3 +5,4 @@ code_examples
 *.log
 logs
 __pycache__
+*checkpoint*
