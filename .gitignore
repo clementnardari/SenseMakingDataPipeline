@@ -6,3 +6,6 @@ code_examples
 logs
 __pycache__
 *checkpoint*
+*debug*
+.ipynb_checkpoints/debug-checkpoint.ipynb
+.ipynb_checkpoints/debug-checkpoint.ipynb
